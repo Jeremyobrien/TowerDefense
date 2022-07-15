@@ -1,4 +1,4 @@
-namespace TowereDefense
+namespace TowerDefense
 {
     public class Map
     {
