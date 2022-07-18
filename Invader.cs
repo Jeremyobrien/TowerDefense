@@ -1,21 +1,19 @@
 namespace TowerDefense
 {
-    abstract class Invader
+    abstract class Invader : IInvader
     {
         private readonly Path _path;
         private int _pathStep = 0;
 
         protected virtual int StepSize { get; } = 1;
 
-        public virtual int Health { get; protected set; } = 2;
+        public abstract int Health { get; protected set; }
 
         public bool HasScored { get { return _pathStep >= _path.Length; } }
 
         public bool IsNeutralized => Health <= 0;
 
         public bool IsActive => !(IsNeutralized || HasScored);
-
-        public int Score { get; private set; } = 0;
 
         public MapLocation Location => _path.GetLocationAt(_pathStep);
 
@@ -26,9 +24,10 @@ namespace TowerDefense
 
         public void Move() => _pathStep += StepSize;
 
-        public virtual void DecreaseHealth( int factor)
+        public virtual void DecreaseHealth(int factor)
         {
             Health -= factor;
         }
+
     }
 }

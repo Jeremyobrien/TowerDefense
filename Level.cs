@@ -3,11 +3,11 @@ namespace TowerDefense
 {
     class Level
     {
-        private readonly Invader[] _invaders;
+        private readonly IInvader[] _invaders;
 
         public Tower[] Towers { get; set; }
 
-        public Level(Invader[] invaders)
+        public Level(IInvader[] invaders)
         {
             _invaders = invaders;
         }
@@ -27,7 +27,7 @@ namespace TowerDefense
                 }
                 //Count and move the invders that are still active.
                 remainingInvaders = 0;
-                foreach (Invader invader in _invaders)
+                foreach (IInvader invader in _invaders)
                 {
                     if (invader.IsActive)
                     {
