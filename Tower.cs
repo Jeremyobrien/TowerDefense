@@ -36,7 +36,7 @@ namespace TowerDefense
 
                         if(invader.IsNeutralized)
                         {
-                            Console.WriteLine("Invader neutralized");
+                            Console.WriteLine("Invader neutralized at " + invader.Location + "!");
                         }
                     }
                     else
